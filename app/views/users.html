@@ -1,0 +1,15 @@
+<main-nav></main-nav>
+
+<div class="table-responsive">
+  <table class="table">
+    <tbody>
+      <tr ng-repeat="user in users track by $index">
+        <td>
+          #{{user.id}}. {{user.first}}  {{user.last}}
+          <user-edit></user-edit>
+          <user-delete></user-delete>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,14 @@
+<main-nav></main-nav>
+
+
+<form role="form">
+  <div class="form-group">
+    <label for="first-name">First Name</label>
+    <input class="form-control" id="first-name" placeholder="" ng-model="user.first">
+  </div>
+  <div class="form-group">
+    <label for="last-name">Last Name</label>
+    <input class="form-control" id="last-name" placeholder="" ng-model="user.last">
+  </div>
+  <button type="submit" class="btn btn-default" ng-click="addUser(user)">Add</button>
+</form>
