@@ -1,14 +1,33 @@
 <main-nav></main-nav>
 
-
+<!-- 
 <form role="form">
   <div class="form-group">
     <label for="first-name">First Name</label>
-    <input class="form-control" id="first-name" placeholder="" ng-model="user.first">
+    <input class="form-control" id="first-name" placeholder="" name="first" ng-model="user.first"  ng-minlength="3" ng-maxlength="8">
   </div>
   <div class="form-group">
     <label for="last-name">Last Name</label>
-    <input class="form-control" id="last-name" placeholder="" ng-model="user.last">
+    <input class="form-control" id="last-name" placeholder="" name="last" ng-model="user.last"  ng-minlength="3" ng-maxlength="15">
   </div>
   <button type="submit" class="btn btn-default" ng-click="addUser(user)">Add</button>
+</form>
+ -->
+
+<form name="userForm" ng-submit="addUser(userForm.$valid)" novalidate> 
+
+
+    <div class="form-group"  ng-class="{ 'has-error' : userForm.first.$invalid && !userForm.first.$pristine  && submitted }">
+        <label>First name</label>
+        <input type="text" name="first" class="form-control" ng-model="user.first" required  ng-minlength="3" ng-maxlength="8">
+        <p ng-show="userForm.first.$invalid && !userForm.first.$pristine" class="help-block">You First name  is required.</p>
+    </div>
+    </div>
+    <div class="form-group"  ng-class="{ 'has-error' : userForm.last.$invalid && !userForm.last.$pristine && submitted  }">
+        <label>Last name</label>
+        <input type="text" name="last" class="form-control" ng-model="user.last" ng-minlength="5" ng-maxlength="15">
+        <p ng-show="userForm.last.$invalid && !userForm.last.$pristine" class="help-block">You Last name  is required.</p>
+    </div>
+    <button type="submit" class="btn btn-primary"  >Submit</button>
+    
 </form>
