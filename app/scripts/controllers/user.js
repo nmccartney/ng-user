@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ngUserApp')
-  .controller('UserCtrl', function ($scope,Userserv) {
+  .controller('UserCtrl', function ($scope,$location,Userserv) {
     $scope.users = Userserv.users ;
 
     $scope.$on('users.update',function(){
@@ -19,7 +19,7 @@ angular.module('ngUserApp')
         Userserv.add({first: $scope.user.first,last:$scope.user.last});
         $scope.user.first = null;
         $scope.user.last = null;
-
+        $location.path( "/users" );
       }else{
 
       }
