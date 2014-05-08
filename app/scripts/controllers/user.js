@@ -15,15 +15,15 @@ angular.module('ngUserApp')
       console.log(isValid);
       if(isValid){
         console.log($scope.first);
-        
-        Userserv.add({first: $scope.first,last:$scope.last});
-        $scope.first = null;
-        $scope.last = null;
+
+        Userserv.add({first: $scope.user.first,last:$scope.user.last});
+        $scope.user.first = null;
+        $scope.user.last = null;
 
       }else{
-        
+
       }
-      
+
     };
 
     $scope.deleteUser = function(u){
